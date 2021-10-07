@@ -11,7 +11,7 @@ HttpSession objsesion=request.getSession();
 String nombre=(String)objsesion.getAttribute("llevadato");
 %>
 <div style="background-color:#333333">
-	<h1><label><%=nombre %></label></h1>
+	<h1><img style='width: 80px; height: 60px' src="imgs/logo.png"><label><%=nombre %></label></h1>
 <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/consultar.js"></script>
 </div>
