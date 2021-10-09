@@ -14,6 +14,7 @@ public class clientesDTO {
 		this.telcli=telcli;
 		this.emailcli=emailcli;
 	}
+	
 	public clientesDTO(int cedcli) {
 		this.cedcli = cedcli;
 	}

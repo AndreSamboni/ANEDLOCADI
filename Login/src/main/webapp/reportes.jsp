@@ -25,18 +25,36 @@ String nombre=(String)objsesion.getAttribute("llevadato");
   <a style= "background-color: #d95e28" href="reportes.jsp">Reportes</a>
 </div>
 <body>
+<br><br>
+<table style="float: left">
+  <tr>
+    <th><button type="button" class="registerbtn2" name="btnconusu">Listado de usuarios</button></th>
+  </tr>
+  <tr>
+    <th><button type="button" class="registerbtn2" name="btnconcli">Listado de clientes</button></th>
+  </tr>
+  <tr>
+    <th><button type="button" class="registerbtn2" name="btnconvencli">Ventas por Cliente</button></th>
+  </tr>
+</table>
+<br>
 <center>
-<form action="Servletreportes" method="POST">	
-<input type="button" class="registerbtn" name="btncon">Listado de usuarios</button>
-</form>
-
-<form action="" method="">	
-<input type="button" class="registerbtn" name="btncon">Listado de clientes</button>
-</form>
-
-<form action="" method="">		
-<input type="button" class="registerbtn" name="btncon">Ventas por Cliente</button>
-</form>
-</center> 
+<table  class="tableRepor" name="ola"  border="1">
+  <tr>
+    <th>Cedula usuario</th>
+    <th>Nombre usuario</th>
+    <th>Email usuario</th>
+    <th>Usuario</th>
+    <th>Password</th>
+  </tr>
+  <tr>
+    <td>123456789</td>
+    <td>12345</td>
+    <td>123.555.789</td>
+    <td>John Johnny</td>
+    <td>johnny@example.com</td>
+  </tr>
+</center>
+</div>
 </body>
 </html>

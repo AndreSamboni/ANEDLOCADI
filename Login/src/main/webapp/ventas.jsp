@@ -34,16 +34,16 @@ String nombre=(String)objsesion.getAttribute("llevadato");
 				<tr>
 					<td>
 						<label style="color:white" for="ProvTaxnumb"><b>Cédula</b></label><br>
-						<input style="width: 395px;" type="text" placeholder="Ingrese NIT" name="ProvTaxnumb" id="ProvTaxnumb">
+						<input style="width: 395px;" type="text" placeholder="Ingrese cédula" value="${cliente.getCedula()}" name="ProvTaxnumb" id="ProvTaxnumb">
 						<button type="submit" class="registerbtn" name="btncns">Consultar</button>
 					</td>
 					<td>
 						<label style="color:white" for="ProvTaxnumb"><b>Cliente</b></label><br>
-						<input type="text" placeholder="Ingrese NIT" name="ProvTaxnumb" id="ProvTaxnumb">
+						<input type="text" placeholder="Nombre cliente" value="${cliente.getNombre()}" name="ProvTaxnumb" id="ProvTaxnumb">
 					</td>
 					<td>
-						<label style="color:white" for="ProvTaxnumb"><b>Consec</b></label><br>
-						<input style ="width: 230px" type="text" placeholder="Ingrese NIT" name="ProvTaxnumb" id="ProvTaxnumb">
+						<label style="color:white" for="ProvTaxnumb"><b>No. Venta</b></label><br>
+						<input style ="width: 230px" type="text" placeholder="Codigo de venta" value="${ventas.getCod_venta()}" name="ProvTaxnumb" id="ProvTaxnumb">
 					</td>
 				</tr>
 				<tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>

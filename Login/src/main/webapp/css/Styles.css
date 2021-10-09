@@ -82,6 +82,17 @@ hr {
   opacity: 0.9;
 }
 
+.registerbtn2 {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 170px;
+  opacity: 0.9;
+}
+
 .registerbtn:hover {
   opacity:1;
 }
@@ -95,5 +106,30 @@ a {
 .signin {
   background-color: #f1f1f1;
   text-align: center;
+}
+
+.tableRepor {
+	border-collapse: collapse;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+.tableRepor td {
+	padding: 15px;
+}
+.tableRepor thead td {
+	background-color: #54585d;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 13px;
+	border: 1px solid #54585d;
+}
+.tableRepor tbody td {
+	color: #636363;
+	border: 1px solid #dddfe1;
+}
+.tableRepor tbody tr {
+	background-color: #f9fafb;
+}
+.tableRepor tbody tr:nth-child(odd) {
+	background-color: #ffffff;
 }
 
