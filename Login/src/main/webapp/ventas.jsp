@@ -25,82 +25,96 @@ String nombre=(String)objsesion.getAttribute("llevadato");
   <a href="reportes.jsp">Reportes</a>
 </div>
 <body>
-<form action="action_page.php">
-	<div style= "left: 250px;" class="container">
+<form action="Servletventas" method=POST>
+	<div style= "left: 285px;" class="container">
 		<h1></h1>
 		<p></p>
-		<hr style = "width: 1509px;">
+		<hr style = "width: 1240px;">
 			<table>
 				<tr>
 					<td>
-						<label style="color:white" for="ProvTaxnumb"><b>Cédula</b></label><br>
-						<input style="width: 395px;" type="text" placeholder="Ingrese cédula" value="${cliente.getCedula()}" name="ProvTaxnumb" id="ProvTaxnumb">
-						<button type="submit" class="registerbtn" name="btncns">Consultar</button>
+						<label style="color:white"><b>Cédula</b></label><br>
+						<input style="width: 395px;" type="text" placeholder="Ingrese cédula" name=cedula_cli value="${cliente.getCedcli()}">
+						<input type="submit" class="registerbtn" name="confirmar">
 					</td>
 					<td>
-						<label style="color:white" for="ProvTaxnumb"><b>Cliente</b></label><br>
-						<input type="text" placeholder="Nombre cliente" value="${cliente.getNombre()}" name="ProvTaxnumb" id="ProvTaxnumb">
+						<label style="color:white"><b>Nombre del Cliente</b></label><br>
+						<input type="text" name="nombre" value="${cliente.getNombrecli()}">
 					</td>
 					<td>
-						<label style="color:white" for="ProvTaxnumb"><b>No. Venta</b></label><br>
-						<input style ="width: 230px" type="text" placeholder="Codigo de venta" value="${ventas.getCod_venta()}" name="ProvTaxnumb" id="ProvTaxnumb">
+					</td>
+					<td>
+						<label style="color:white"><b>Cód. Venta</b></label><br>
+						<input style ="width: 160px" type="text" name="cod_venta" value="${ventas.getCod_venta()}">
 					</td>
 				</tr>
 				<tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
 				<tr>
 					<td>
-						<label style="color:white" for="ProvTaxnumb"><b>Productos</b></label>
+						<label style="color:white" for="ProvTaxnumb"><b>Cód. Producto</b></label>
 					</td>
 					<td>
-						<label style="color:white" for="ProvTaxnumb"><b>Nombre de productos</b></label>
+						<label style="color:white" for="ProvTaxnumb"><b>Nombre del producto</b></label>
 					</td>
 					<td>
-						<label style="color:white; width: 60px;" for="ProvTaxnumb"><b>Cant</b></label>
+						<label style="color:white; width: 60px;" for="ProvTaxnumb"><b>Cant.</b></label>
 					</td>
 					<td>
-						<label style="color:white" for="ProvTaxnumb"><b>Vlr. Total</b></label>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input style="width: 395px;" type="text" name="ProvTaxnumb" id="ProvTaxnumb">
-						<button type="submit" class="registerbtn" name="btncns">Consultar</button>
-					</td>
-					<td>
-						<input type="text"  name="ProvTaxnumb" id="ProvTaxnumb">
-					</td>
-					<td>
-						<input style="width: 60px;" type="text"  name="ProvTaxnumb" id="ProvTaxnumb">
+						<label style="color:white" for="ProvTaxnumb"><b>Precio del producto</b></label>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input style="width: 395px;" type="text" name="ProvTaxnumb" id="ProvTaxnumb">
-						<button type="submit" class="registerbtn" name="btncns">Consultar</button>
+						<input style="width: 395px;" type="text" placeholder="Ingrese código producto 1" name="cod_producto" value="${producto.getCodproducto()}">
+						<input type="submit" class="registerbtn" name="conpro" value="Consultar">
 					</td>
 					<td>
-						<input type="text" name="ProvTaxnumb" id="ProvTaxnumb">
+						<input type="text" class="nombre" name="n2" value="${producto.getNombre_producto()}">
 					</td>
 					<td>
-						<input style="width: 60px;" type="text"  name="ProvTaxnumb" id="ProvTaxnumb">
+						<input style="width: 60px;" type="text" class="cantidad" id="cantidad" name="can">
+					</td>
+					<td>
+						<input style="width: 160px;" type="text" class="pre" id="pre" name="precio" value="${producto.getPrecio_venta()}">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input style="width: 395px;" type="text" name="ProvTaxnumb" id="ProvTaxnumb">
-						<button type="submit" class="registerbtn" name="btncns">Consultar</button>
+						<input style="width: 395px;" type="text" placeholder="Ingrese código producto 2" name="codigo1" value="${producto1.getCodproducto()}">
+						<input type="submit" class="registerbtn" name="conpro1" value="Consultar">
 					</td>
 					<td>
-						<input type="text" name="ProvTaxnumb" id="ProvTaxnumb">
+						<input type="text" class="nombre" name="n2" value="${producto1.getNombre_producto()}">
 					</td>
 					<td>
-						<input style="width: 60px;" type="text"  name="ProvTaxnumb" id="ProvTaxnumb">
+						<input style="width: 60px;" type="text" class="cantidad1" id="cantidad1" name="can1">
+					</td>
+					<td>
+						<input style="width: 160px;" type="text" class="pre"  id="pre1" name="precio1" value="${producto1.getPrecio_venta()}">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input style="width: 395px;" type="text" placeholder="Ingrese código producto 3" name="codigo2" value="${producto2.getCodproducto()}">
+						<input type="submit" class="registerbtn" name="conpro2" value="Consultar">
+					</td>
+					<td>
+						<input type="text" class="nombre" name="n2" value="${producto2.getNombre_producto()}">
+					</td>
+					<td>
+						<input style="width: 60px;" type="text" class="cantidad2" id="cantidad2" name="can2">
+					</td>
+					<td>
+						<input style="width: 160px;" type="text" class="pre"  id="pre2" name="precio2" value="${producto2.getPrecio_venta()}">
 					</td>
 				</tr>
 			</table>
-		<hr style = "width: 1509px;">
+		<hr style = "width: 1240px;">
 		<center>
-			<button type="submit" class="registerbtn" name="btncns">Consultar</button>
+			<td class="ult" colspan="5">
+				<input type="submit" class="registerbtn" name="valor_total" value="Enviar Venta">
+				<input type="text" name="cu" value="${vs.getCedusu()}">
+			</td>
 		</center>
   </div>
 </form> 

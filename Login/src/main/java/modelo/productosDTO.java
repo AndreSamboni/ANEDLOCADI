@@ -2,13 +2,13 @@ package modelo;
 
 public class productosDTO {
 	private int codproducto;
-	private double iva_compra;
-	private int nit_proveedor;
-	private String nombre_producto;
+	private String nombre_producto;	
+	private int nit_proveedor;	
 	private double precio_compra;
+	private double iva_compra;
 	private double precio_venta;
-	public productosDTO(int codproducto, double iva_compra, int nit_proveedor, String nombre_producto,
-			double precio_compra, double precio_venta) {
+	public productosDTO(int codproducto, String nombre_producto, int nit_proveedor, 
+			double precio_compra,double iva_compra, double precio_venta) {
 		super();
 		this.codproducto = codproducto;
 		this.iva_compra = iva_compra;

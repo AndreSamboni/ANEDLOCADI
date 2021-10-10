@@ -20,12 +20,12 @@ public class ventasDAO {
 		boolean resultado=false;
 		
 		try{
-	    ps =cx.prepareStatement("Insert Into ventas(cedula_cliente,cedula_usuario,iva_venta,total_venta,valor_venta) value(?,?,?,?,?)");
+	    ps =cx.prepareStatement("Insert Into ventas(cedula_cli,cedula_usu,valor_venta,iva_venta,total_venta) value(?,?,?,?,?)");
 		ps.setInt(1, ven.getCedula_cli());
 		ps.setInt(2, ven.getCedula_usu());
-		ps.setDouble(3, ven.getIvaventa());
-		ps.setDouble(4, ven.getTotalventa());
-		ps.setDouble(5, ven.getValorventa());
+		ps.setDouble(3, ven.getValorventa());
+		ps.setDouble(4, ven.getIvaventa());
+		ps.setDouble(5, ven.getTotalventa());
 		resultado=ps.executeUpdate()>0;
 		
 		}catch(SQLException ex){
@@ -36,7 +36,7 @@ public class ventasDAO {
 	
 public ventasDTO consultarcodventa() {
 	try {
-		ps=cx.prepareStatement("SELECT MAX(codigo_venta),cedula_cliente,cedula_usuario,iva_venta,total_venta,valor_venta AS id FROM ventas");
+		ps=cx.prepareStatement("SELECT MAX(cod_venta),cedula_cli,cedula_usu,valor_venta,iva_venta,total_venta AS id FROM ventas");
 		rs=ps.executeQuery();
 		if(rs.next()) {
 			 ven=new ventasDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getDouble(4), rs.getDouble(5),rs.getDouble(6));

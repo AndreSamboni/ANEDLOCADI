@@ -17,7 +17,7 @@ import controlador.Conexion;
 				ps.setInt(1, pro.getCodproducto());
 				rs=ps.executeQuery();
 				if(rs.next()){
-				 prodto=new productosDTO(rs.getInt(1), rs.getDouble(2), rs.getInt(3), rs.getString(4), rs.getDouble(5),rs.getDouble(6));
+				 prodto=new productosDTO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getDouble(5),rs.getDouble(6));
 				}
 				
 			} catch (SQLException e) {

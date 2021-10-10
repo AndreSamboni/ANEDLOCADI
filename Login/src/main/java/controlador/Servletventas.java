@@ -71,7 +71,7 @@ public class Servletventas extends HttpServlet {
 			
 			int codpro;
 			productosDTO listapro;
-			codpro=Integer.parseInt(request.getParameter("cod_venta"));
+			codpro=Integer.parseInt(request.getParameter("cod_producto"));
 			productosDTO podto=new productosDTO(codpro);
 			proDAO prdao=new proDAO();
 			listapro=prdao.consultarproducto(podto);
@@ -117,7 +117,7 @@ public class Servletventas extends HttpServlet {
 	
 		
 		
-		if(request.getParameter("total")!=null) {
+		if(request.getParameter("valor_total")!=null) {
 		   double total1,total2,total3;
 		
 		  
