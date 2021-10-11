@@ -18,7 +18,7 @@ public class LogeoDAO {
 		    usuariosDTO u=null;
 		    
 		    try{
-		    String sql="select * from usuarios where usuario=? and password_usuario=?";
+		    String sql="select * from usuarios where usuario=? and password=?";
 		    
 		    ps =conecta.prepareStatement(sql);
 		    ps.setString(1, us.getUser());

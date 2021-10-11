@@ -21,7 +21,7 @@ public class ventasDAO {
 		
 		try{
 	    ps =cx.prepareStatement("Insert Into ventas(cedula_cli,cedula_usu,valor_venta,iva_venta,total_venta) value(?,?,?,?,?)");
-		ps.setInt(1, ven.getCedula_cli());
+	    ps.setInt(1, ven.getCedula_cli());
 		ps.setInt(2, ven.getCedula_usu());
 		ps.setDouble(3, ven.getValorventa());
 		ps.setDouble(4, ven.getIvaventa());

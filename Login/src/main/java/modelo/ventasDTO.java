@@ -4,11 +4,11 @@ public class ventasDTO {
 	private int cod_venta;
 	private int cedula_cli;
 	private int cedula_usu;
+	private double valorventa;
 	private double ivaventa;
 	private double totalventa;
-	private double valorventa;
-	public ventasDTO(int cod_venta, int cedula_cli, int cedula_usu, double ivaventa, double totalventa,
-			double valorventa) {
+	public ventasDTO(int cod_venta, int cedula_cli, int cedula_usu, double valorventa, double ivaventa, 
+			double totalventa) {
 		this.cod_venta = cod_venta;
 		this.cedula_cli = cedula_cli;
 		this.cedula_usu = cedula_usu;
@@ -17,8 +17,7 @@ public class ventasDTO {
 		this.valorventa = valorventa;
 	}
 	
-	public ventasDTO(int cedula_cli, int cedula_usu, double ivaventa, double totalventa, double valorventa) {
-		super();
+	public ventasDTO(int cedula_cli, int cedula_usu, double valorventa, double ivaventa, double totalventa) {
 		this.cedula_cli = cedula_cli;
 		this.cedula_usu = cedula_usu;
 		this.ivaventa = ivaventa;

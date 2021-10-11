@@ -7,10 +7,9 @@ public class Logeo {
 	private String password;
 	private String usuario;
 	public Logeo(int cedulausu, String email, String nombreusu, String password, String usuario) {
-		super();
 		this.cedulausu = cedulausu;
 		this.email = email;
-		Nombreusu = nombreusu;
+		this.Nombreusu = nombreusu;
 		this.password = password;
 		this.usuario = usuario;
 	}
@@ -30,7 +29,7 @@ public class Logeo {
 		return Nombreusu;
 	}
 	public void setNombreusu(String nombreusu) {
-		Nombreusu = nombreusu;
+		this.Nombreusu = nombreusu;
 	}
 	public String getPassword() {
 		return password;

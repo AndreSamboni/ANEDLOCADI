@@ -15,9 +15,16 @@ public class usuariosDTO {
 		this.password=password;
 	}
 	
+	public usuariosDTO(String user, String password) {
+		super();
+		this.user = user;
+		this.password = password;
+	}
+
 	public usuariosDTO(int cedusu) {
 		this.cedusu = cedusu;
 	}
+
 
 	public int getCedusu() {
 		return cedusu;

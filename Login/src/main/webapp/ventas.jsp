@@ -45,7 +45,7 @@ String nombre=(String)objsesion.getAttribute("llevadato");
 					</td>
 					<td>
 						<label style="color:white"><b>Cód. Venta</b></label><br>
-						<input style ="width: 160px" type="text" name="cod_venta" value="${ventas.getCod_venta()}">
+						<input style ="width: 160px" type="text" name="cod_venta" value="">
 					</td>
 				</tr>
 				<tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
@@ -111,10 +111,14 @@ String nombre=(String)objsesion.getAttribute("llevadato");
 			</table>
 		<hr style = "width: 1240px;">
 		<center>
-			<td class="ult" colspan="5">
+			<tr><td class="ult" colspan="5">
 				<input type="submit" class="registerbtn" name="valor_total" value="Enviar Venta">
-				<input type="text" name="cu" value="${vs.getCedusu()}">
-			</td>
+			</td></tr>
+</tbody>
+    
+</table>
+<input style='width: 130px; height: 47px' type="text" placeholder="Cédula usuario" name="cu" value="${vs.getCedusu()}">
+			</td></tr>
 		</center>
   </div>
 </form> 

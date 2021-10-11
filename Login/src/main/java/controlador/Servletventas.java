@@ -118,7 +118,7 @@ public class Servletventas extends HttpServlet {
 		
 		
 		if(request.getParameter("valor_total")!=null) {
-		   double total1,total2,total3;
+		   double total1,total2,total3,tott, tott1, tott2;
 		
 		  
 			cant1=Integer.parseInt(request.getParameter("can"));
@@ -136,6 +136,9 @@ public class Servletventas extends HttpServlet {
 			total1=res*iva/100;
 			total2=res1*iva1/100;
 			total3=res2*iva2/100;
+			tott=res+total1;
+			tott1=res1+total2;
+			tott2=res2+total3;
 			totalsiniva=res+res1+res2;
 			totaliva=total1+total2+total3;
 			totaldesiva=totalsiniva+totaliva;
@@ -152,16 +155,16 @@ public class Servletventas extends HttpServlet {
 			    double iva,tv,vv;
 			    boolean ress;
 			    cedcli=(request.getParameter("cedula_cli"));
-			    cedusu=(request.getParameter("cedula_usu"));
+			    cedusu=(request.getParameter("cu"));
 			    iva=totaliva;
 			    tv=totalsiniva;
 			    vv=totaldesiva;
 			    cc=Integer.parseInt(cedcli);
 			    cu=Integer.parseInt(cedusu);
-			    ventasDTO ven=new ventasDTO(cc, cu, iva, tv, vv);
+			    ventasDTO ven=new ventasDTO(cc, cu, tv,iva, vv);
 			    ventasDAO vendao=new ventasDAO();
 			    ress=vendao.insertarventa(ven);
-			    if(ress) {
+			    if(ress==true) {
 			    JOptionPane.showMessageDialog(null, "Venta registrada");
 			    int can;
 			    int cv;
@@ -170,20 +173,23 @@ public class Servletventas extends HttpServlet {
 			    ventasDTO venn;
 			    detalleventasDTO dd;
 			    detalleventasDAO dedao;
-			    int codpro=Integer.parseInt(request.getParameter("codigo"));
+			    int codpro=Integer.parseInt(request.getParameter("cod_producto"));
+			    int codpro1=Integer.parseInt(request.getParameter("codigo1"));
+			    int codpro2=Integer.parseInt(request.getParameter("codigo2"));
 			    ventasDAO vend=new ventasDAO();
 			    venn=vend.consultarcodventa();
 			  
 			     can=cant1;
 			     if(can>0) {
-			   
+
 				    cv=venn.getCod_venta();
 				    iv=ven.getIvaventa();
 				    dtv=ven.getTotalventa();
 				    dvv=ven.getValorventa();
-				    dd=new detalleventasDTO(can, cv, codpro, total3, iva, iva);
+				    dd=new detalleventasDTO(cv, can, codpro, res, total1, tott);
 				    dedao=new detalleventasDAO();
 				    x=dedao.Inserta_Cliente(dd);
+			    	codpro=dd.getCod_producto();
 				    	if(x) {
 				    		JOptionPane.showMessageDialog(null, "detalle insertado");
 				    	}
@@ -200,9 +206,10 @@ public class Servletventas extends HttpServlet {
 					    iv=ven.getIvaventa();
 					    dtv=ven.getTotalventa();
 					    dvv=ven.getValorventa();
-					    dd=new detalleventasDTO(can, cv, codpro, total3, iva, iva);
+					    dd=new detalleventasDTO(cv, can, codpro1, res1, total2, tott1);
 					    dedao=new detalleventasDAO();
 					    x=dedao.Inserta_Cliente(dd);
+				    	codpro1=dd.getCod_producto();
 					    	if(x) {
 					    		JOptionPane.showMessageDialog(null, "detalle insertado");
 					    	}
@@ -217,12 +224,13 @@ public class Servletventas extends HttpServlet {
 					    iv=ven.getIvaventa();
 					    dtv=ven.getTotalventa();
 					    dvv=ven.getValorventa();
-					    dd=new detalleventasDTO(can, cv, codpro, total3, iva, iva);
+					    dd=new detalleventasDTO(cv, can, codpro2, res2, total3, tott2);
 					    dedao=new detalleventasDAO();
 					    x=dedao.Inserta_Cliente(dd);
+				    	codpro2=dd.getCod_producto();
 					    if(x) {
 					    	JOptionPane.showMessageDialog(null, "detalle insertado");
-					    	response.sendRedirect("menuprincipal.jsp");
+					    	response.sendRedirect("ventas.jsp");
 					    }
 				 }
 			     else {

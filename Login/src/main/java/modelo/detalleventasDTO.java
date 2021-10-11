@@ -1,6 +1,7 @@
 package modelo;
 
 public class detalleventasDTO {
+	private int cod_det_venta;
 	private int cod_venta;
 	private int cant_producto;
 	private int cod_producto;
@@ -8,15 +9,35 @@ public class detalleventasDTO {
 	private double valor_iva;
 	private double valor_total;
 	
-	
-	public detalleventasDTO(int cod_venta, int cant_producto, int cod_producto, double valor_venta,
+
+	public detalleventasDTO(int cod_det_venta, int cod_venta, int cant_producto, int cod_producto, double valor_venta,
 			double valor_iva, double valor_total) {
+		this.cod_det_venta = cod_det_venta;
 		this.cod_venta = cod_venta;
 		this.cant_producto = cant_producto;
 		this.cod_producto = cod_producto;
 		this.valor_venta = valor_venta;
 		this.valor_iva = valor_iva;
 		this.valor_total = valor_total;
+	}
+
+	public detalleventasDTO(int cod_venta, int cant_producto, int cod_producto, double valor_venta, double valor_iva,
+			double valor_total) {
+		super();
+		this.cod_venta = cod_venta;
+		this.cant_producto = cant_producto;
+		this.cod_producto = cod_producto;
+		this.valor_venta = valor_venta;
+		this.valor_iva = valor_iva;
+		this.valor_total = valor_total;
+	}
+
+	public int getCod_det_venta() {
+		return cod_det_venta;
+	}
+
+	public void setCod_det_venta(int cod_det_venta) {
+		this.cod_det_venta = cod_det_venta;
 	}
 
 	public int getCant_producto() {

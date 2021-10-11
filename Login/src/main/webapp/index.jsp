@@ -22,11 +22,11 @@ usu=request.getParameter("dato");
    			<table class="card">
         	<tr>
             	<td><center><label style="color:#d95e28" for = "usu">Usuario: </label></center></td>
-            	<td><input style="width:280px; height: 35px;" type="text"" name="usu"></td>
+            	<td><input style="width:280px; height: 35px;" type="text"" name="usuario"></td>
         	</tr>
         	<tr>
             	<td><label style="color:#d95e28" for = "pass">Contraseña: </label></td>
-            	<td><input style="width:280px;height: 35px;" type="password" name="pass"></td>
+            	<td><input style="width:280px;height: 35px;" type="password" name="password"></td>
         	</tr>
     		</table>
     		<center>    	 

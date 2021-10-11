@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
+import modelo.LogeoDAO;
+import modelo.usuariosDTO;
+
 /**
  * Servlet implementation class ServletLogin
  */
@@ -37,20 +40,37 @@ public class ServLetLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sesion=request.getSession();
-		String u,c;
-		u=request.getParameter("usu");
-		c=request.getParameter("pass");
-		if(u.equals("admininicial")&& c.equals("admin123456")){
-			JOptionPane.showInternalMessageDialog(null, "Datos correctos");
+		if(request.getParameter("btnlog")!=null){
 			
-			// sesion.setAttribute("vsusuario",lo.getUsuario());
-            sesion.setAttribute("llevadato",u );
-            
-			response.sendRedirect("Principal.jsp?dato="+u);
+			String u,c;
+			usuariosDTO usdto;
+			u=request.getParameter("usuario");
+			c=request.getParameter("password");
+			usuariosDTO lo=new usuariosDTO(u, c);
+			LogeoDAO lodao=new LogeoDAO();
+			usdto=lodao.login(lo);
+
+
+			String y="admininicial";
+			sesion.setAttribute("llevadat",y );
+             
+              if(usdto.getUser().equals(u) && usdto.getPassword().equals(c)){
+                 JOptionPane.showMessageDialog(null, "Datos correctos");
+                 String uss=usdto.getNombreusu(); 
+                 JOptionPane.showMessageDialog(null, uss);
+                 // sesion.setAttribute("vsusuario",lo.getUsuario());
+               
+                 sesion.setAttribute("llevadato",uss );
+                 
+                 sesion.setAttribute("vs",usdto);
+               
+                  request.getRequestDispatcher("Principal.jsp").forward(request, response);
+              }
 	}
-		else {
-			JOptionPane.showInternalMessageDialog(null, "Datos incorrectos");
-			response.sendRedirect("index.jsp");
-		}
-	}
+        	else{
+            JOptionPane.showMessageDialog(null, "Datos incorrectos");
+            response.sendRedirect("index.jsp");
+        }
+
+        }
 }
