@@ -25,6 +25,11 @@ public class ventasDTO {
 		this.valorventa = valorventa;
 	}
 
+	public ventasDTO(int cod_venta) {
+		super();
+		this.cod_venta = cod_venta;
+	}
+
 	public int getCod_venta() {
 		return cod_venta;
 	}

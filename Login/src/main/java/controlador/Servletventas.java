@@ -57,15 +57,26 @@ public class Servletventas extends HttpServlet {
 		clientesDTO clidto=new clientesDTO(cedula);
 		listado=clidao.consultarcliente(clidto);
 		
+		
 		//ced=listadto.getCedula();
 		//nom=listadto.getNombre();
+		 sesion.setAttribute("cliente",listado);
 		 sesion.setAttribute("cliente",listado);
 		 ///request.setAttribute("clientenombre",nom);
 		//JOptionPane.showMessageDialog(null, ced+nom);
 		 request.getRequestDispatcher("ventas.jsp").forward(request, response);
+	
+		
+		//if(cedula>1) {
+			//int codv;
+		//ventasDTO codado;
+		//codv=Integer.parseInt(request.getParameter("cod_venta"));
+		//ventasDAO dbtdao=new ventasDAO();
+		//ventasDTO dbtdto=new ventasDTO(codv);
+		//codado=dbtdao.consultarcodventa();
+		
+		//}
 		}
-		
-		
 		
 		if(request.getParameter("conpro")!=null) {
 			

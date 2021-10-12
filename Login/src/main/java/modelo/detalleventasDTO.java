@@ -23,7 +23,6 @@ public class detalleventasDTO {
 
 	public detalleventasDTO(int cod_venta, int cant_producto, int cod_producto, double valor_venta, double valor_iva,
 			double valor_total) {
-		super();
 		this.cod_venta = cod_venta;
 		this.cant_producto = cant_producto;
 		this.cod_producto = cod_producto;

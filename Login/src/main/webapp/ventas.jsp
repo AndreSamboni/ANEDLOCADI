@@ -44,8 +44,8 @@ String nombre=(String)objsesion.getAttribute("llevadato");
 					<td>
 					</td>
 					<td>
-						<label style="color:white"><b>Cód. Venta</b></label><br>
-						<input style ="width: 160px" type="text" name="cod_venta" value="">
+						<!-- <label style="color:white"><b>Cód. Venta</b></label><br>
+						<input style ="width: 160px" type="text" name="cod_venta" value="${ventas.getCod_venta()}"> -->
 					</td>
 				</tr>
 				<tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
