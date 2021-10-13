@@ -12,17 +12,23 @@ public class ventasDTO {
 		this.cod_venta = cod_venta;
 		this.cedula_cli = cedula_cli;
 		this.cedula_usu = cedula_usu;
+		this.valorventa = valorventa;
 		this.ivaventa = ivaventa;
 		this.totalventa = totalventa;
-		this.valorventa = valorventa;
 	}
 	
 	public ventasDTO(int cedula_cli, int cedula_usu, double valorventa, double ivaventa, double totalventa) {
 		this.cedula_cli = cedula_cli;
 		this.cedula_usu = cedula_usu;
+		this.valorventa = valorventa;
 		this.ivaventa = ivaventa;
 		this.totalventa = totalventa;
-		this.valorventa = valorventa;
+	}
+
+	public ventasDTO(int cod_venta, int cedula_cli, double totalventa) {
+		this.cod_venta = cod_venta;
+		this.cedula_cli = cedula_cli;
+		this.totalventa = totalventa;
 	}
 
 	public ventasDTO(int cod_venta) {

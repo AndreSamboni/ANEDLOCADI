@@ -1,6 +1,8 @@
 package controlador;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
+import com.google.gson.Gson;
 import modelo.clientesDAO;
 import modelo.clientesDTO;
 import modelo.detalleventasDAO;
 import modelo.detalleventasDTO;
 import modelo.proDAO;
 import modelo.productosDTO;
-import modelo.productosDAO;
 import modelo.ventasDAO;
 import modelo.ventasDTO;
 
@@ -46,6 +48,8 @@ public class Servletventas extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sesion=request.getSession();
+		PrintWriter out=response.getWriter();
+		ventasDAO vendao=new ventasDAO();
 		if(request.getParameter("confirmar")!=null) {
 		int cedula,ced;
 		String nom;
@@ -173,7 +177,6 @@ public class Servletventas extends HttpServlet {
 			    cc=Integer.parseInt(cedcli);
 			    cu=Integer.parseInt(cedusu);
 			    ventasDTO ven=new ventasDTO(cc, cu, tv,iva, vv);
-			    ventasDAO vendao=new ventasDAO();
 			    ress=vendao.insertarventa(ven);
 			    if(ress==true) {
 			    JOptionPane.showMessageDialog(null, "Venta registrada");
@@ -248,16 +251,21 @@ public class Servletventas extends HttpServlet {
 			    	 JOptionPane.showMessageDialog(null, "No inserto cantidad");
 			     }
 			     
+			    }	     
 			     
-			     
-			    }
 			    else {
 			    	JOptionPane.showMessageDialog(null, "Venta NO registrada");
 			    }
-			    	
-		  }
+		    }
 		}
-		
+        if(request.getParameter("btnconvencli")!=null) {
+			    }
+        JOptionPane.showMessageDialog(null, "Gson");
+		ArrayList<ventasDTO>lista=new ArrayList<>();
+		vendao=new ventasDAO();
+		lista=vendao.consultageneralven();
+		Gson gson=new Gson();
+		out.print(gson.toJson(lista));
+		}
 	}
 
-}

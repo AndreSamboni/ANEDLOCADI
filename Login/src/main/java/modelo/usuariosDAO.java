@@ -2,7 +2,6 @@ package modelo;
 	
 import java.sql.*;
 import java.util.ArrayList;
-
 import controlador.Conexion;
 
 	public class usuariosDAO {
@@ -95,7 +94,7 @@ import controlador.Conexion;
 		public ArrayList<usuariosDTO> consultageneralusu(){
 			ArrayList<usuariosDTO>lista=new ArrayList<usuariosDTO>();
 			try {
-				ps=cx.prepareStatement("SELECT * FROM proveedores");
+				ps=cx.prepareStatement("SELECT * FROM usuarios");
 				rs=ps.executeQuery();
 				while(rs.next()) {
 					usudto=new usuariosDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));

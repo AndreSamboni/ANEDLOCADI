@@ -1,12 +1,15 @@
 package controlador;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
+import com.google.gson.Gson;
 import modelo.usuariosDAO;
 import modelo.usuariosDTO;
 
@@ -33,14 +36,14 @@ public class Servletusuarios extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Insertar un usuario
+		        PrintWriter out=response.getWriter();
 				boolean insusu;
 				int cedusu;
 				String nombreusu, emailusu, usuario, password;
 				usuariosDTO usudto;
 				usuariosDAO usudao;
 				usuariosDTO conusu;
-				
+				//Insertar un usuario
 				if(request.getParameter("btnins")!=null) {		
 					cedusu=Integer.parseInt(request.getParameter("cedula_usu"));
 					nombreusu=request.getParameter("nombre_usu");
@@ -114,5 +117,16 @@ public class Servletusuarios extends HttpServlet {
 					}
 					response.sendRedirect("usuarios.jsp");
 				}
-			}
+				if(request.getParameter("btnconusu")!=null) {	
+					
+				}
+				
+				JOptionPane.showMessageDialog(null, "Gson");
+				ArrayList<usuariosDTO>lista=new ArrayList<>();
+				usudao=new usuariosDAO();
+				lista=usudao.consultageneralusu();
+				Gson gson=new Gson();
+				out.print(gson.toJson(lista));
+				}
 		}
+

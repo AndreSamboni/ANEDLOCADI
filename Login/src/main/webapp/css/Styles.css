@@ -111,15 +111,18 @@ a {
 .tableRepor {
 	border-collapse: collapse;
     font-family: Tahoma, Geneva, sans-serif;
+    width: 700px;
+	margin-left: auto;
+    margin-right: auto;
 }
 .tableRepor td {
 	padding: 15px;
 }
 .tableRepor thead td {
 	background-color: #54585d;
-	color: #ffffff;
+	color: #c0c0c0;
 	font-weight: bold;
-	font-size: 13px;
+	font-size: 12px;
 	border: 1px solid #54585d;
 }
 .tableRepor tbody td {
@@ -133,3 +136,37 @@ a {
 	background-color: #ffffff;
 }
 
+.tableRepor1 {
+	background-color: #c0c0c0;
+	border-collapse: collapse;
+    font-family: Tahoma, Geneva, sans-serif;
+    width: 300px;
+	margin-left: auto;
+    margin-right: auto;
+}
+.tableRepor1 td {
+	padding: 15px;
+}
+.tableRepor1 thead td {
+	background-color: #54585d;
+	color: #c0c0c0;
+	font-weight: bold;
+	font-size: 12px;
+	border: 1px solid #54585d;
+}
+.tableRepor1 tbody td {
+	color: #636363;
+	border: 1px solid #c0c0c0;
+}
+.tableRepor1 tbody tr {
+	background-color: #f9fafb;
+}
+.tableRepor1 tbody tr:nth-child(odd) {
+	background-color: #ffffff;
+}
+
+/*TablaPrincipal{
+	width: 150px;
+	margin-left: auto;
+    margin-right: auto;
+}*/

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 import controlador.Conexion;
 
@@ -13,6 +15,8 @@ public class ventasDAO {
 	Conexion con= new Conexion();
 	Connection cx=con.conexionbd();
 	ventasDTO ven;
+	ventasDAO vendao;
+	ventasDTO vendto;
 	
 	public boolean insertarventa(ventasDTO ven){
 		
@@ -49,4 +53,22 @@ public ventasDTO consultarcodventa() {
 	
 	return ven;
 	}
+
+//Consulta general ventas
+		public ArrayList<ventasDTO> consultageneralven(){
+			ArrayList<ventasDTO>lista=new ArrayList<ventasDTO>();
+			try {
+				ps=cx.prepareStatement("SELECT cod_venta, cedula_cli, total_venta FROM ventas");
+				rs=ps.executeQuery();
+				while(rs.next()) {
+					vendto=new ventasDTO(rs.getInt(1), rs.getInt(2), rs.getDouble(3));
+					lista.add(vendto);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return lista;
+}
 }

@@ -1,13 +1,15 @@
 package controlador;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
-
+import com.google.gson.Gson;
 import modelo.clientesDAO;
 import modelo.clientesDTO;
 
@@ -34,14 +36,13 @@ public class Servletclientes extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//Insertar un cliente
+		PrintWriter out=response.getWriter();
 		int cedcli;
 		String nombrecli, dircli, emailcli, telcli;
 		clientesDTO clidto;
 		clientesDAO clidao;
 		clientesDTO concli;
-		
+		//Insertar un cliente
 		if(request.getParameter("btnins")!=null) {
 			boolean inscli;
 			cedcli=Integer.parseInt(request.getParameter("cedula_cli"));
@@ -116,6 +117,16 @@ public class Servletclientes extends HttpServlet {
 				JOptionPane.showMessageDialog(null, "No se eliminó el cliente");
 			}
 			response.sendRedirect("clientes.jsp");
+			}
+		if(request.getParameter("btnconcli")!=null) {	
+			
 		}
-	}
+		
+		JOptionPane.showMessageDialog(null, "Gson");
+		ArrayList<clientesDTO>lista=new ArrayList<>();
+		clidao=new clientesDAO();
+		lista=clidao.consultageneralcli();
+		Gson gson=new Gson();
+		out.print(gson.toJson(lista));
+		}
 }
