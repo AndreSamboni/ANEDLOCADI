@@ -60,11 +60,11 @@ import controlador.Conexion;
 			int  x=0;
 			
 				try {
-					ps=cx.prepareStatement("UPDATE clientes SET Nombre_cli=?,direccion_cli=?,email_cli=?,Telefono_cli=? WHERE cedula_cli=?");
+					ps=cx.prepareStatement("UPDATE clientes SET Nombre_cli=?,direccion_cli=?,Telefono_cli=?,email_cli=? WHERE cedula_cli=?");
 					ps.setString(1, cli.getNombrecli());
 					ps.setString(2, cli.getDircli());
-					ps.setString(3, cli.getEmailcli());
-					ps.setString(4, cli.getTelcli());
+					ps.setString(3, cli.getTelcli());
+					ps.setString(4, cli.getEmailcli());
 					ps.setInt(5, cli.getCedcli());
 					x=ps.executeUpdate();
 				} catch (SQLException e) {

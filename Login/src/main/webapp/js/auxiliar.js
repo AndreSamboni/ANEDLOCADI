@@ -92,12 +92,14 @@ $(document).ready(function() {
                 tabla3.innerHTML = `<tr>
 						<th>Codigo venta</th>
     					<th>Cedula cliente</th>
+						<th>Nombre cliente</th>
     					<th>Valor total ventas</th>            
                        </tr>`;
 
                 for (let i of result) {
                     tabla3.innerHTML += `<tr> <td>${i.cod_venta}</td>
 	                       <td>${i.cedula_cli}</td>
+						   <td>${i.nombrecli}</td>
 						   <td>${i.totalventa}</td>
 	                 </tr>`;
                 }

@@ -3,36 +3,39 @@ package modelo;
 public class ventasDTO {
 	private int cod_venta;
 	private int cedula_cli;
+	private String nombrecli;
 	private int cedula_usu;
 	private double valorventa;
 	private double ivaventa;
 	private double totalventa;
-	public ventasDTO(int cod_venta, int cedula_cli, int cedula_usu, double valorventa, double ivaventa, 
+	public ventasDTO(int cod_venta, int cedula_cli, String nombrecli, int cedula_usu, double valorventa, double ivaventa, 
 			double totalventa) {
 		this.cod_venta = cod_venta;
 		this.cedula_cli = cedula_cli;
-		this.cedula_usu = cedula_usu;
-		this.valorventa = valorventa;
-		this.ivaventa = ivaventa;
-		this.totalventa = totalventa;
-	}
-	
-	public ventasDTO(int cedula_cli, int cedula_usu, double valorventa, double ivaventa, double totalventa) {
-		this.cedula_cli = cedula_cli;
+		this.nombrecli = nombrecli;
 		this.cedula_usu = cedula_usu;
 		this.valorventa = valorventa;
 		this.ivaventa = ivaventa;
 		this.totalventa = totalventa;
 	}
 
-	public ventasDTO(int cod_venta, int cedula_cli, double totalventa) {
+	public ventasDTO(int cedula_cli, String nombrecli, int cedula_usu, double valorventa, double ivaventa, double totalventa) {
+		this.cedula_cli = cedula_cli;
+		this.nombrecli = nombrecli;
+		this.cedula_usu = cedula_usu;
+		this.valorventa = valorventa;
+		this.ivaventa = ivaventa;
+		this.totalventa = totalventa;
+	}
+
+	public ventasDTO(int cod_venta, int cedula_cli,String nombrecli, double totalventa) {
 		this.cod_venta = cod_venta;
 		this.cedula_cli = cedula_cli;
+		this.nombrecli = nombrecli;
 		this.totalventa = totalventa;
 	}
 
 	public ventasDTO(int cod_venta) {
-		super();
 		this.cod_venta = cod_venta;
 	}
 
@@ -47,6 +50,13 @@ public class ventasDTO {
 	}
 	public void setCedula_cli(int cedula_cli) {
 		this.cedula_cli = cedula_cli;
+	}
+	public String getNombrecli() {
+		return nombrecli;
+	}
+
+	public void setNombrecli(String nombrecli) {
+		this.nombrecli = nombrecli;
 	}
 	public int getCedula_usu() {
 		return cedula_usu;

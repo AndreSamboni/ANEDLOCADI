@@ -121,7 +121,7 @@ public class Servletusuarios extends HttpServlet {
 					
 				}
 				
-				JOptionPane.showMessageDialog(null, "Gson");
+				//JOptionPane.showMessageDialog(null, "Gson");
 				ArrayList<usuariosDTO>lista=new ArrayList<>();
 				usudao=new usuariosDAO();
 				lista=usudao.consultageneralusu();

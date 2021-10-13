@@ -110,7 +110,7 @@ a {
 
 .tableRepor {
 	border-collapse: collapse;
-    font-family: Tahoma, Geneva, sans-serif;
+    font-family: Times, "Times New Roman", Georgia, serif;
     width: 700px;
 	margin-left: auto;
     margin-right: auto;
@@ -139,8 +139,8 @@ a {
 .tableRepor1 {
 	background-color: #c0c0c0;
 	border-collapse: collapse;
-    font-family: Tahoma, Geneva, sans-serif;
-    width: 300px;
+    font-family: Times, "Times New Roman", Georgia, serif;
+    width: 400px;
 	margin-left: auto;
     margin-right: auto;
 }
@@ -148,8 +148,8 @@ a {
 	padding: 15px;
 }
 .tableRepor1 thead td {
-	background-color: #54585d;
-	color: #c0c0c0;
+	background-color: rgb(64, 128, 128);
+	color: #808080;
 	font-weight: bold;
 	font-size: 12px;
 	border: 1px solid #54585d;
@@ -159,7 +159,7 @@ a {
 	border: 1px solid #c0c0c0;
 }
 .tableRepor1 tbody tr {
-	background-color: #f9fafb;
+	background-color: #00ffff;
 }
 .tableRepor1 tbody tr:nth-child(odd) {
 	background-color: #ffffff;

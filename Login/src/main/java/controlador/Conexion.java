@@ -16,7 +16,7 @@ public class Conexion {
 				
 				try {
 					cx=DriverManager.getConnection("jdbc:mysql://localhost/bd_tienda_g","root","samboni1");
-					JOptionPane.showMessageDialog(null, "Conexión exitosa");
+					//JOptionPane.showMessageDialog(null, "Conexión exitosa");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

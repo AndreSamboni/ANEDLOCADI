@@ -86,9 +86,9 @@ public class Servletclientes extends HttpServlet {
 			cedcli=Integer.parseInt(request.getParameter("cedula_cli"));
 			nombrecli=request.getParameter("Nombre_cli");
 			dircli=request.getParameter("direccion_cli");
-			emailcli=request.getParameter("email_cli");
 			telcli=request.getParameter("Telefono_cli");
-			clidto=new clientesDTO(cedcli, nombrecli, dircli, emailcli, telcli);
+			emailcli=request.getParameter("email_cli");
+			clidto=new clientesDTO(cedcli, nombrecli, dircli, telcli, emailcli);
 			clidao=new clientesDAO();
 			dat=clidao.actualizar(clidto);
 			if(dat > 0){
@@ -106,8 +106,8 @@ public class Servletclientes extends HttpServlet {
 			cedcli=Integer.parseInt(request.getParameter("cedula_cli"));
 			nombrecli=request.getParameter("Nombre_cli");
 			dircli=request.getParameter("direccion_cli");
-			emailcli=request.getParameter("email_cli");
 			telcli=request.getParameter("Telefono_cli");
+			emailcli=request.getParameter("email_cli");
 			clidto=new clientesDTO(cedcli);
 			clidao=new clientesDAO();
 			dat=clidao.eliminar(clidto);
@@ -122,7 +122,7 @@ public class Servletclientes extends HttpServlet {
 			
 		}
 		
-		JOptionPane.showMessageDialog(null, "Gson");
+		//JOptionPane.showMessageDialog(null, "Gson");
 		ArrayList<clientesDTO>lista=new ArrayList<>();
 		clidao=new clientesDAO();
 		lista=clidao.consultageneralcli();

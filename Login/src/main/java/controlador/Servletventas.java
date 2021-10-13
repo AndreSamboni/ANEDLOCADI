@@ -66,8 +66,8 @@ public class Servletventas extends HttpServlet {
 		//nom=listadto.getNombre();
 		 sesion.setAttribute("cliente",listado);
 		 sesion.setAttribute("cliente",listado);
-		 ///request.setAttribute("clientenombre",nom);
-		//JOptionPane.showMessageDialog(null, ced+nom);
+		 //request.setAttribute("clientenombre",nom);
+		 //JOptionPane.showMessageDialog(null, ced+nom);
 		 request.getRequestDispatcher("ventas.jsp").forward(request, response);
 	
 		
@@ -163,25 +163,26 @@ public class Servletventas extends HttpServlet {
 			//JOptionPane.showMessageDialog(null,"Art1 "+res+"\n"+"Art2 "+res1+"\n"+"Art3 "+res2+"\n"+"\nIVA "+total1+"\n"+"IVA2 "+total2+"\n"+"IVA3 "+total3+"\n"+"\nTotal sin IVA  "+totalsiniva+"\n"+"TOTAL IVA "+totaliva+"\n"+"Total a pagar "+totaldesiva+"\n");
 		    
 			int i=JOptionPane.showConfirmDialog(null,"Art1 "+res+"\n"+"Art2 "+res1+"\n"+"Art3 "+res2+"\n"+"\nIVA "+total1+"\n"+"IVA2 "+total2+"\n"+"IVA3 "+total3+"\n"+"\nTotal sin IVA  "+totalsiniva+"\n"+"TOTAL IVA "+totaliva+"\n"+"Total a pagar "+totaldesiva+"\n" );
-		     JOptionPane.showMessageDialog(null, "impriendo la i"+i);
+		     //JOptionPane.showMessageDialog(null, "impriendo la i"+i);
 		    if(i==0) {
-			    String cedcli,cedusu;
-			    int cc,cu;
+			    String cedcli,cedusu, codventa, nom;
+			    int cc,cu,cv;
 			    double iva,tv,vv;
 			    boolean ress;
 			    cedcli=(request.getParameter("cedula_cli"));
+			    nom=(request.getParameter("nombre"));
 			    cedusu=(request.getParameter("cu"));
+			    codventa=(request.getParameter("cv"));
 			    iva=totaliva;
 			    tv=totalsiniva;
 			    vv=totaldesiva;
 			    cc=Integer.parseInt(cedcli);
 			    cu=Integer.parseInt(cedusu);
-			    ventasDTO ven=new ventasDTO(cc, cu, tv,iva, vv);
+			    ventasDTO ven=new ventasDTO(cc, nom, cu, tv,iva, vv);
 			    ress=vendao.insertarventa(ven);
 			    if(ress==true) {
 			    JOptionPane.showMessageDialog(null, "Venta registrada");
-			    int can;
-			    int cv;
+			    int can, codvn;
 			    double iv,dtv,dvv;
 			    boolean x;
 			    ventasDTO venn;
@@ -192,7 +193,8 @@ public class Servletventas extends HttpServlet {
 			    int codpro2=Integer.parseInt(request.getParameter("codigo2"));
 			    ventasDAO vend=new ventasDAO();
 			    venn=vend.consultarcodventa();
-			  
+			    codvn= venn.getCod_venta();			    
+			    JOptionPane.showMessageDialog(null, "CODIGO DE VENTA: " + codvn);
 			     can=cant1;
 			     if(can>0) {
 
@@ -205,7 +207,7 @@ public class Servletventas extends HttpServlet {
 				    x=dedao.Inserta_Cliente(dd);
 			    	codpro=dd.getCod_producto();
 				    	if(x) {
-				    		JOptionPane.showMessageDialog(null, "detalle insertado");
+				    		//JOptionPane.showMessageDialog(null, "detalle insertado");
 				    	}
 			     }
 			     
@@ -225,7 +227,7 @@ public class Servletventas extends HttpServlet {
 					    x=dedao.Inserta_Cliente(dd);
 				    	codpro1=dd.getCod_producto();
 					    	if(x) {
-					    		JOptionPane.showMessageDialog(null, "detalle insertado");
+					    		//JOptionPane.showMessageDialog(null, "detalle insertado");
 					    	}
 					     }
 			     else {
@@ -243,7 +245,7 @@ public class Servletventas extends HttpServlet {
 					    x=dedao.Inserta_Cliente(dd);
 				    	codpro2=dd.getCod_producto();
 					    if(x) {
-					    	JOptionPane.showMessageDialog(null, "detalle insertado");
+					    	JOptionPane.showMessageDialog(null, "Detalle insertado");
 					    	response.sendRedirect("ventas.jsp");
 					    }
 				 }
@@ -260,7 +262,7 @@ public class Servletventas extends HttpServlet {
 		}
         if(request.getParameter("btnconvencli")!=null) {
 			    }
-        JOptionPane.showMessageDialog(null, "Gson");
+        //JOptionPane.showMessageDialog(null, "Gson");
 		ArrayList<ventasDTO>lista=new ArrayList<>();
 		vendao=new ventasDAO();
 		lista=vendao.consultageneralven();
@@ -268,4 +270,3 @@ public class Servletventas extends HttpServlet {
 		out.print(gson.toJson(lista));
 		}
 	}
-

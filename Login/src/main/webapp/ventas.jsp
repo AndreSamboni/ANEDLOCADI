@@ -11,6 +11,11 @@
 <%
 HttpSession objsesion=request.getSession();
 String nombre=(String)objsesion.getAttribute("llevadato");
+
+//String codven="";
+//if(request.getParameter("codv")!=null){
+	//codven=request.getParameter("codv");
+//}
 %>
 <div style="background-color:#333333">
 	<h1><img style='width: 80px; height: 60px' src="imgs/logo.png"><label><%=nombre %></label></h1>
@@ -43,9 +48,9 @@ String nombre=(String)objsesion.getAttribute("llevadato");
 					</td>
 					<td>
 					</td>
-					<td>
-						<!-- <label style="color:white"><b>Cód. Venta</b></label><br>
-						<input style ="width: 160px" type="text" name="cod_venta" value="${ventas.getCod_venta()}"> -->
+					<td><img style='width: 160px; height: 60px' src="imgs/aned2.PNG">
+						<!-- label style="color:white"><b>Cód. Venta</b></label><br>
+						< input style ="width: 160px" type="text" name="cod_venta" value="nada"-->
 					</td>
 				</tr>
 				<tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
@@ -117,7 +122,7 @@ String nombre=(String)objsesion.getAttribute("llevadato");
 </tbody>
     
 </table>
-<input style='width: 130px; height: 47px' type="text" placeholder="Cédula usuario" name="cu" value="${vs.getCedusu()}">
+<input style='width: 130px; height: 47px' type="text" placeholder="Cédula usuario" name="cu" value="${vs.getCedusu()}"> 
 			</td></tr>
 		</center>
   </div>
