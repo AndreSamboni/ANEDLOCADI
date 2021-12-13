@@ -13,7 +13,7 @@ HttpSession objsesion=request.getSession();
 String nombre=(String)objsesion.getAttribute("llevadato");
 %>
 <div style="background-color:#333333">
-	<h1><img style='width: 80px; height: 60px' src="imgs/logo.png"><label><%=nombre %></label></h1>
+	<h1><img style='width: 80px; height: 60px' src="imgs/logo.png"><label><%=nombre %></label><label> - ${vs.getCiudad()}</label></h1>
 </div>
 <div class="scrollmenu">
   <a href="Principal.jsp">Home</a>
@@ -26,13 +26,15 @@ String nombre=(String)objsesion.getAttribute("llevadato");
 </div>
 <body>
 <%
-String cedusu="",nombreusu="",emailusu="",user="",password="";
+String cedusu="",nombreusu="",emailusu="",user="",password="", ciudad="",rol="";
 if(request.getParameter("co")!=null){
 cedusu=request.getParameter("co");
 nombreusu=request.getParameter("no");
 emailusu=request.getParameter("eu");
 user=request.getParameter("us");
 password=request.getParameter("pa");
+ciudad=request.getParameter("ci");
+rol=request.getParameter("ro");
 }
 %>
 <form action="Servletusuarios" method="POST">
@@ -48,12 +50,20 @@ password=request.getParameter("pa");
 			
 			<label style="color:white"for="emailusu"><b>Correo electrónico</b></label><br>
 			<input type="text"placeholder="Ingrese correo electrónico"name="email_usu"value="<%=emailusu%>"id="emailusu"><br>
-		
+		<table><tr><td>
 			<label style="color:white"for="user"><b>Usuario</b></label><br>
-			<input type="text"placeholder="Ingrese usuario"name="usuario"value="<%=user%>"id="user"><br>
-			
+			<input style="width: 247px;"type="text"placeholder="Ingrese usuario"name="usuario"value="<%=user%>"id="user">
+			<td>
 			<label style="color:white"for="password"><b>Contraseña</b></label><br>
-			<input type="password"placeholder="Ingrese contraseña"name="password"value="<%=password%>"id="password"><br>
+			<input style="width: 247px;"type="password"placeholder="Ingrese contraseña"name="password"value="<%=password%>"id="password"></td></tr>
+			</table>
+		<table><tr><td>
+			<label style="color:white"for="ciudad"><b>Ciudad</b></label><br>
+			<input style="width: 247px;"type="text"placeholder="Ingrese ciudad"name="ciudad"value="<%=ciudad%>"id="ciudad">
+			<td>
+			<label style="color:white"for="rol"><b>Rol</b></label><br>
+			<input style="width: 247px;"type="text"placeholder="Ingrese rol"name="rol"value="<%=rol%>"id="rol"></td></tr>
+			</table>
 		<hr>
 		<center>
 			<button type="submit" class="registerbtn" name="btncon">Consultar</button>

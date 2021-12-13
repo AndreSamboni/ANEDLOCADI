@@ -6,15 +6,35 @@ public class usuariosDTO {
 	private String emailusu;
 	private String user;
 	private String password;
+	private String ciudad;
+	private String rol;
 	
-	public usuariosDTO(int cedusu, String nombreusu, String emailusu, String user, String password) {
+	public usuariosDTO(int cedusu, String nombreusu, String emailusu, String user, String password, String ciudad, String rol) {
 		this.cedusu=cedusu;
 		this.nombreusu=nombreusu;
 		this.emailusu=emailusu;
 		this.user=user;
 		this.password=password;
+		this.ciudad=ciudad;
+		this.rol=rol;
 	}
 	
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
 	public usuariosDTO(String user, String password) {
 		super();
 		this.user = user;

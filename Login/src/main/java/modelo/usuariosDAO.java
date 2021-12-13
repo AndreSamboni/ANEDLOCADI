@@ -16,12 +16,14 @@ import controlador.Conexion;
 			boolean dat=false;
 		
 		try {
-			ps=cx.prepareStatement("INSERT INTO usuarios Values(?,?,?,?,?)");
+			ps=cx.prepareStatement("INSERT INTO usuarios Values(?,?,?,?,?,?,?)");
 			ps.setInt(1, usu.getCedusu());
 			ps.setString(2, usu.getNombreusu());
 			ps.setString(3, usu.getEmailusu());
 			ps.setString(4, usu.getUser());
 			ps.setString(5, usu.getPassword());
+			ps.setString(6, usu.getCiudad());
+			ps.setString(7, usu.getRol());
 			ps.executeUpdate();
 			c=ps.executeUpdate();
 			if(c>0) {
@@ -40,7 +42,7 @@ import controlador.Conexion;
 			ps.setInt(1, usu.getCedusu());
 			rs=ps.executeQuery();
 			if(rs.next()) {
-			usu=new usuariosDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+			usu=new usuariosDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6),rs.getString(7));
 			}
 			else {
 				return null;
@@ -57,12 +59,14 @@ import controlador.Conexion;
 			int  x=0;
 			
 				try {
-					ps=cx.prepareStatement("UPDATE usuarios SET nombre_usu=?,email_usu=?, usuario=?, password=? WHERE cedula_usu=?");
+					ps=cx.prepareStatement("UPDATE usuarios SET nombre_usu=?,email_usu=?, usuario=?, password=?,ciudad=?,rol=? WHERE cedula_usu=?");
 					ps.setString(1, usu.getNombreusu());
 					ps.setString(2, usu.getEmailusu());
 					ps.setString(3, usu.getUser());
 					ps.setString(4, usu.getPassword());
-					ps.setInt(5, usu.getCedusu());
+					ps.setString(5, usu.getCiudad());
+					ps.setString(6, usu.getRol());
+					ps.setInt(7, usu.getCedusu());
 					x=ps.executeUpdate();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -81,6 +85,8 @@ import controlador.Conexion;
 				//ps.setString(3, usu.getEmailusu());
 				//ps.setString(4, usu.getUser());
 				//ps.setString(5, usu.getPassword());
+				//ps.setString(6, usu.getCiudad());
+				//ps.setString(7, usu.getRol());
 				x=ps.executeUpdate();
 				
 			} catch (SQLException e) {
@@ -97,7 +103,7 @@ import controlador.Conexion;
 				ps=cx.prepareStatement("SELECT * FROM usuarios");
 				rs=ps.executeQuery();
 				while(rs.next()) {
-					usudto=new usuariosDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+					usudto=new usuariosDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6),rs.getString(7));
 					lista.add(usudto);
 				}
 				

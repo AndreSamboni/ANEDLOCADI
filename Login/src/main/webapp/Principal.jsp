@@ -14,7 +14,7 @@ String nom=(String)objsesion.getAttribute("llevadat");
 %>
 <input type="hidden" name="codigo" value="${vs.getCedusu()}"  >
 <div style="background-color:#333333">
-	<h1><img style='width: 80px; height: 60px' src="imgs/logo.png"> Bienvenido <label><%=nombre %></label></h1>
+	<h1><img style='width: 80px; height: 60px' src="imgs/logo.png"> Bienvenido <label><%=nombre %></label><label> - ${vs.getCiudad()}</label></h1>
 
 <!--<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/consultar.js"></script>-->

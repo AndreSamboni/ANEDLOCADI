@@ -1,6 +1,8 @@
 package controlador;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,7 +52,6 @@ public class ServLetLogin extends HttpServlet {
 			LogeoDAO lodao=new LogeoDAO();
 			usdto=lodao.login(lo);
 
-
 			String y="admininicial";
 			sesion.setAttribute("llevadat",y );
              
@@ -59,18 +60,15 @@ public class ServLetLogin extends HttpServlet {
                  String uss=usdto.getNombreusu(); 
                  JOptionPane.showMessageDialog(null, uss);
                  // sesion.setAttribute("vsusuario",lo.getUsuario());
-               
                  sesion.setAttribute("llevadato",uss );
-                 
                  sesion.setAttribute("vs",usdto);
-               
-                  request.getRequestDispatcher("Principal.jsp").forward(request, response);
-              }
-	}
-        	else{
-            JOptionPane.showMessageDialog(null, "Datos incorrectos");
-            response.sendRedirect("index.jsp");
+                 request.getRequestDispatcher("Principal.jsp").forward(request, response);
+           
+              }else{
+            	   JOptionPane.showMessageDialog(null, "Datos incorrectos");
+            	   response.sendRedirect("index.jsp");
         }
 
-        }
+}
+	}
 }

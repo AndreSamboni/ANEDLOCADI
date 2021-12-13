@@ -13,7 +13,7 @@
       String nombre=(String)objsesion.getAttribute("llevadato");
       %>
    <div style="background-color:#333333">
-      <h1><img style='width: 80px; height: 60px' src="imgs/logo.png"><label><%=nombre %></label></h1>
+      <h1><img style='width: 80px; height: 60px' src="imgs/logo.png"><label><%=nombre %></label><label> - ${vs.getCiudad()}</label></h1>
    </div>
    <div class="scrollmenu">
       <a href="Principal.jsp">Home</a>

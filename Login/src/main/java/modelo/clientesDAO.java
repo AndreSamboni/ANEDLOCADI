@@ -2,6 +2,9 @@ package modelo;
 	
 import java.sql.*;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
 import controlador.Conexion;
 
 	public class clientesDAO {

@@ -72,13 +72,21 @@ public class Servletclientes extends HttpServlet {
 			clidto=new clientesDTO(cedcli);
 			clidao=new clientesDAO();
 			concli=clidao.consultarcliente(clidto);
-			cod=concli.getCedcli();
-			ncli=concli.getNombrecli();
-			dcli=concli.getDircli();
-			tcli=concli.getTelcli();
-			ecli=concli.getEmailcli();
-			JOptionPane.showMessageDialog(null, cod + ncli + dcli + tcli + ecli);
-			response.sendRedirect("clientes.jsp?co="+cod+"&&no="+ncli+"&&dir="+dcli+"&&tel="+tcli+"&&em="+ecli);
+		
+			if (concli!=null) {
+				cod=concli.getCedcli();
+				ncli=concli.getNombrecli();
+				dcli=concli.getDircli();
+				tcli=concli.getTelcli();
+				ecli=concli.getEmailcli();
+				JOptionPane.showMessageDialog(null, cod + ncli + dcli + tcli + ecli);
+				response.sendRedirect("clientes.jsp?co="+cod+"&&no="+ncli+"&&dir="+dcli+"&&tel="+tcli+"&&em="+ecli);
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Cédula no existe en base de datos");
+				response.sendRedirect("clientes.jsp");			
+			}
+			
 		}
 		//Actualizar un cliente
 		if(request.getParameter("btnact")!=null){

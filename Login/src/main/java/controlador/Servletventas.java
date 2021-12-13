@@ -90,11 +90,15 @@ public class Servletventas extends HttpServlet {
 			productosDTO podto=new productosDTO(codpro);
 			proDAO prdao=new proDAO();
 			listapro=prdao.consultarproducto(podto);
-			iva= listapro.getIva_compra() ;
-			sesion.setAttribute("producto",listapro);
-			request.getRequestDispatcher("ventas.jsp").forward(request, response);
-			
-			
+			if (listapro!=null) {
+				iva= listapro.getIva_compra() ;
+				sesion.setAttribute("producto",listapro);
+				request.getRequestDispatcher("ventas.jsp").forward(request, response);
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Código de producto no existe");
+				response.sendRedirect("ventas.jsp");
+			}
 			
 		} 
 		
@@ -105,10 +109,15 @@ public class Servletventas extends HttpServlet {
 			productosDTO podto=new productosDTO(codpro);
 			proDAO prdao=new proDAO();
 			listapro1=prdao.consultarproducto(podto);
-			iva1= listapro1.getIva_compra() ;
-			sesion.setAttribute("producto1",listapro1);
-			request.getRequestDispatcher("ventas.jsp").forward(request, response);
-			
+			if (listapro1!=null) {
+				iva1= listapro1.getIva_compra() ;
+				sesion.setAttribute("producto1",listapro1);
+				request.getRequestDispatcher("ventas.jsp").forward(request, response);
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Código de producto no existe");
+				response.sendRedirect("ventas.jsp");
+			}
 			
 			
 		} 
@@ -119,11 +128,15 @@ public class Servletventas extends HttpServlet {
 			productosDTO podto=new productosDTO(codpro);
 			proDAO prdao=new proDAO();
 			listapro2=prdao.consultarproducto(podto);
-			iva2= listapro2.getIva_compra();
-			
-			sesion.setAttribute("producto2",listapro2);
-			request.getRequestDispatcher("ventas.jsp").forward(request, response);
-			
+			if (listapro2!=null) {
+				iva2= listapro2.getIva_compra();
+				sesion.setAttribute("producto2",listapro2);
+				request.getRequestDispatcher("ventas.jsp").forward(request, response);
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Código de producto no existe");
+				response.sendRedirect("ventas.jsp");
+			}
 			
 			
 		} 
@@ -135,7 +148,17 @@ public class Servletventas extends HttpServlet {
 		if(request.getParameter("valor_total")!=null) {
 		   double total1,total2,total3,tott, tott1, tott2;
 		
-		  
+		   int aux = 0;		
+           if(request.getParameter("can") == "" || request.getParameter("can") == "0"){
+				aux = aux + 1;
+			} 
+			if(request.getParameter("can1") == "" || request.getParameter("can1") == "0"){
+				aux = aux + 1;
+			}
+			if(request.getParameter("can2") == "" || request.getParameter("can2") == "0"){
+				aux = aux + 1;
+			}
+			if(aux == 0){			
 			cant1=Integer.parseInt(request.getParameter("can"));
 			cant2=Integer.parseInt(request.getParameter("can1"));
 			cant3=Integer.parseInt(request.getParameter("can2"));
@@ -260,6 +283,12 @@ public class Servletventas extends HttpServlet {
 			    }
 		    }
 		}
+		   else{
+				JOptionPane.showMessageDialog(null, "Cantidad no puede estar vacía o en cero");
+				response.sendRedirect("ventas.jsp");
+			}
+			if(aux == 0){
+			}
         if(request.getParameter("btnconvencli")!=null) {
 			    }
         //JOptionPane.showMessageDialog(null, "Gson");
@@ -269,4 +298,6 @@ public class Servletventas extends HttpServlet {
 		Gson gson=new Gson();
 		out.print(gson.toJson(lista));
 		}
+		}
 	}
+

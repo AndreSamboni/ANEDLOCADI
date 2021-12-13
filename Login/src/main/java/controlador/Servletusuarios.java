@@ -39,7 +39,7 @@ public class Servletusuarios extends HttpServlet {
 		        PrintWriter out=response.getWriter();
 				boolean insusu;
 				int cedusu;
-				String nombreusu, emailusu, usuario, password;
+				String nombreusu, emailusu, usuario, password, ciudad, rol;
 				usuariosDTO usudto;
 				usuariosDAO usudao;
 				usuariosDTO conusu;
@@ -50,7 +50,9 @@ public class Servletusuarios extends HttpServlet {
 					emailusu=request.getParameter("email_usu");
 					usuario=request.getParameter("usuario");
 					password=request.getParameter("password");
-					usudto=new usuariosDTO(cedusu, nombreusu, emailusu, usuario, password);
+					ciudad=request.getParameter("ciudad");
+					rol=request.getParameter("rol");
+					usudto=new usuariosDTO(cedusu, nombreusu, emailusu, usuario, password, ciudad, rol);
 					usudao=new usuariosDAO();
 					insusu=usudao.insertarusuario(usudto);
 					if(insusu==false) {
@@ -66,7 +68,7 @@ public class Servletusuarios extends HttpServlet {
 				//Consultar un usuario
 				if (request.getParameter("btncon")!=null) {
 					int cod;
-					String nusu, eusu, usu, pass;
+					String nusu, eusu, usu, pass, ciu;
 					cedusu=Integer.parseInt(request.getParameter("cedula_usu"));
 					usudto=new usuariosDTO(cedusu);
 					usudao=new usuariosDAO();
@@ -76,8 +78,10 @@ public class Servletusuarios extends HttpServlet {
 					eusu=conusu.getEmailusu();
 					usu=conusu.getUser();
 					pass=conusu.getPassword();
-					JOptionPane.showMessageDialog(null, cod + nusu + eusu + usu + pass);
-					response.sendRedirect("usuarios.jsp?co="+cod+"&&no="+nusu+"&&eu="+eusu+"&&us="+usu+"&&pa="+pass);
+					ciu=conusu.getCiudad();
+					rol=conusu.getRol();
+					JOptionPane.showMessageDialog(null, cod + nusu + eusu + usu + pass + ciu + rol);
+					response.sendRedirect("usuarios.jsp?co="+cod+"&&no="+nusu+"&&eu="+eusu+"&&us="+usu+"&&pa="+pass+"&&ci="+ciu+"&&ro="+rol);
 				}
 				//Actualizar un usuario
 				if(request.getParameter("btnact")!=null){
@@ -87,7 +91,9 @@ public class Servletusuarios extends HttpServlet {
 					emailusu=request.getParameter("email_usu");
 					usuario=request.getParameter("usuario");
 					password=request.getParameter("password");
-					usudto=new usuariosDTO(cedusu, nombreusu, emailusu, usuario, password);
+					ciudad=request.getParameter("ciudad");
+					rol=request.getParameter("rol");
+					usudto=new usuariosDTO(cedusu, nombreusu, emailusu, usuario, password,ciudad,rol);
 					usudao=new usuariosDAO();
 					dat=usudao.actualizar(usudto);
 					if(dat > 0){
@@ -107,6 +113,8 @@ public class Servletusuarios extends HttpServlet {
 					emailusu=request.getParameter("email_usu");
 					usuario=request.getParameter("usuario");
 					password=request.getParameter("password");
+					ciudad=request.getParameter("ciudad");
+					rol=request.getParameter("rol");
 					usudto=new usuariosDTO(cedusu);
 					usudao=new usuariosDAO();
 					dat=usudao.eliminar(usudto);
